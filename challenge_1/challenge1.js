@@ -15,8 +15,11 @@ var loadButton = $('#load-button');
  * @return {String}
  */
 function getText() {
-  return $('#save-me').val();
+	return $('#save-me').val();
 }
+loadButton.click(function( event ) {
+	setText(localStorage.getItem("textStorage"));
+});
 
 /**
  * Puts different text
@@ -25,3 +28,8 @@ function getText() {
 function setText(text) {
   return $('#save-me').val(text);
 }
+saveButton.click(function( event ) {
+	localStorage.setItem("textStorage", getText());
+});
+
+
